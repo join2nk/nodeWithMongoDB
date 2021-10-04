@@ -2,11 +2,11 @@ require('dotenv/config')
 const express = require("express");
 const app =  express();
 
-
 const mongoose  = require("mongoose");
 
 mongoose.connect(process.env.MONGODB);
 
+ 
 const fruitSchema = new mongoose.Schema({
   name:{
     type:String,
@@ -30,6 +30,20 @@ app.listen( process.env.PORT || 3000,()=>console.log('server has started'));
 
 
 
+
+
+Fruit.find((err,fruits)=>{
+  if (err){
+    console.log(err);
+  }else{
+    console.log(fruits);
+  }
+})
+//log
+
+
+
+
 // Fruit.updateOne({name:"Banana"},{review:"improves mood and super healthy"},(err)=>{
 //   if(err){
 //     console.log(err);
@@ -42,21 +56,6 @@ app.listen( process.env.PORT || 3000,()=>console.log('server has started'));
     
 //   }
 // })
-
-
-
-Fruit.find((err,fruits)=>{
-  if (err){
-    console.log(err);
-  }else{
-    console.log(fruits);
-  }
-})
-
-
-
-
-//var mangoId;
 
 
 
